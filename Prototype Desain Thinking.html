@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Skill Swap Digital Ledger</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><span> Skill</span> Swap Digital Ledger (SSDL)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #0b0b0b;
+      --dark-black: #050505;
+      --gold: #d4af37;
+      --gold-soft: #b8962e;
+      --text-light: #f5f5f5;
+      --text-muted: #bfbfbf;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, var(--dark-black), var(--black));
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    /* ===== Header / Navbar ===== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(5,5,5,0.85);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid rgba(212,175,55,0.2);
+    }
+
+    .navbar {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: var(--text-light);
+      font-weight: 400;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-light);
+      font-weight: 400;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    /* ===== Hero Section ===== */
+    .hero {
+      max-width: 1200px;
+      margin: auto;
+      padding: 5rem 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 span {
+      color: var(--gold);
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      max-width: 500px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 0.9rem 2rem;
+      border-radius: 30px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-soft));
+      color: #000;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(212,175,55,0.35);
+    }
+
+    .hero-card {
+      background: linear-gradient(145deg, #0f0f0f, #060606);
+      border: 1px solid rgba(212,175,55,0.25);
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    }
+
+    .hero-card h3 {
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .hero-card ul {
+      list-style: none;
+      margin-top: 1.5rem;
+    }
+
+    .hero-card li {
+      margin-bottom: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ===== Sections ===== */
+    section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 4rem 2rem;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title h2 {
+      font-size: 2.2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .section-title span {
+      color: var(--gold);
+    }
+
+    .section-title p {
+      color: var(--text-muted);
+    }
+
+    /* ===== Services ===== */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: linear-gradient(145deg, #101010, #070707);
+      border-radius: 18px;
+      padding: 2rem;
+      border: 1px solid rgba(212,175,55,0.2);
+      transition: transform 0.3s, border 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      border: 1px solid var(--gold);
+    }
+
+    .service-card h3 {
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .service-card p {
+      color: var(--text-muted);
+    }
+
+    /* ===== User Journey ===== */
+    .journey {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .journey-card {
+      background: linear-gradient(145deg, #101010, #070707);
+      border-radius: 18px;
+      padding: 2rem;
+      border: 1px solid rgba(212,175,55,0.2);
+      transition: transform 0.3s, border 0.3s;
+    }
+
+    .journey-card:hover {
+      transform: translateY(-6px);
+      border: 1px solid var(--gold);
+    }
+
+    .journey-card h3 {
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .journey-card p, .journey-card ul {
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .journey-card ul {
+      list-style: disc;
+      margin-left: 1.5rem;
+    }
+
+    .journey-card li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* ===== Summary ===== */
+    .summary {
+      background: linear-gradient(145deg, #0f0f0f, #060606);
+      border: 1px solid rgba(212,175,55,0.25);
+      border-radius: 20px;
+      padding: 2.5rem;
+      margin-top: 2rem;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    }
+
+    .summary h3 {
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .summary p {
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    /* ===== Dashboard ===== */
+    .dashboard {
+      background: linear-gradient(145deg, #0f0f0f, #060606);
+      border: 1px solid rgba(212,175,55,0.25);
+      border-radius: 20px;
+      padding: 2.5rem;
+      margin: 2rem auto;
+      max-width: 800px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+      display: none; /* Hidden by default */
+    }
+
+    .dashboard h3 {
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .dashboard p {
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .points {
+      font-size: 1.5rem;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--text-light);
+    }
+
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid rgba(212,175,55,0.2);
+      border-radius: 5px;
+      background: var(--dark-black);
+      color: var(--text-light);
+    }
+
+    .directory {
+      margin-top: 2rem;
+    }
+
+    .directory-item {
+      background: linear-gradient(145deg, #101010, #070707);
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(212,175,55,0.2);
+    }
+
+    .directory-item h4 {
+      color: var(--gold);
+    }
+
+    .directory-item p {
+      color: var(--text-muted);
+    }
+
+    .rating {
+      margin-top: 1rem;
+    }
+
+    .rating select {
+      width: auto;
+    }
+
+    /* ===== Modals ===== */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: linear-gradient(145deg, #0f0f0f, #060606);
+      border: 1px solid var(--gold);
+      border-radius: 20px;
+      padding: 2rem;
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+    }
+
+    .modal-content h3 {
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .modal-content p {
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      color: var(--text-light);
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      background: #050505;
+      border-top: 1px solid rgba(212,175,55,0.2);
+      padding: 2rem;
+      text-align: center;
+      color: var(--text-muted);
+    }
+
+    footer span {
+      color: var(--gold);
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero p {
+        margin: auto auto 2rem;
+      }
+
+      nav ul {
+        gap: 1.2rem;
+      }
+
+      .journey {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="navbar">
+      <div class="logo">SSDL <span>| Skill Digital Ledger Swap</span></div>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+<a href="file:///C:/Users/Cornelius/Downloads/uploud.html" target="_blank">
+        services
+      </a>
+    </li>
+      <a href="https://www.instagram.com/ithinggg_?igsh=cWoyM2Ixd2Vxbnpy">Contact</a>
+              <li>
+      <a href="file:///C:/Users/Cornelius/Downloads/login.html" target="_blank">
+        login
+      </a>
+    </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== HERO SECTION ===== -->
+<section class="hero">
+  <div class="hero-left">
+    <h1>Tempat untuk kamu<br>Eksplor New<span> Skill</span><br>tanpa biaya</h1>
+
+    <div class="hero-btn">
+      <button class="btn-primary">Mulai</button>
+    </div>
+  </div>
+
+  <!-- ===== RECOMMENDED USER ===== -->
+<style>
+   /* Unvisited link */
+  a:link {
+    color: white;
+  }
+
+  /* Visited link */
+  a:visited {
+    color: white;
+  }
+
+  /* Mouse over link */
+  a:hover {
+    color: red;
+  }
+
+  /* Selected link */
+  a:active {
+    color: yellow;
+  }
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #000;
+  color: #fff;
+}
+
+/* HEADER */
+.header {
+  background: #111;
+  padding: 20px 40px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* HERO */
+.hero {
+  padding: 40px;
+}
+
+.hero h1 {
+  margin: 0 0 10px;
+  font-size: 32px;
+}
+
+.hero p {
+  margin: 0;
+  color: #aaa;
+}
+
+/* GRID */
+.grid {
+  padding: 0 40px 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* CARD */
+.card {
+  background: #141414;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,.6);
+}
+
+/* IMAGE */
+.img-wrap {
+  position: relative;
+  height: 170px;
+  overflow: hidden;
+}
+
+.img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+/* BADGE */
+.badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.badge.top {
+  background: #f5c542;
+  color: #000;
+}
+
+.badge.community {
+  background: #2ecc71;
+  color: #000;
+}
+
+.badge.new {
+  background: #3498db;
+  color: #fff;
+}
+
+/* TEXT */
+.card-body {
+  padding: 12px;
+}
+
+.card-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.card-sub {
+  font-size: 12px;
+  color: #aaa;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+ <span> Skill</span> Swap Digital Ledger
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <h3>Banyak pilihan <span> Skill</span> yang bisa kamu pilih</h3>
+  <p>Gate Access & Identity Validation</p>
+</div>
+
+<!-- GRID -->
+<div class="grid">
+
+  <div class="card">
+    <div class="img-wrap">
+      <img src="images/im1.jpeg" onerror="this.style.display='none'">
+      <span class="badge top">Top Rated</span>
+    </div>
+    <div class="card-body">
+      <li>
+      <a href="https://drive.google.com/drive/folders/1EbGx-QCc6mUQI3h5ZlJlx7pIal7JXH89?usp=drive_link"><div class="card-title"><white>Film Director</div></white></a>
+      </li>
+      <div class="card-sub">Top Rated</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="img-wrap">
+      <img src="images/im2.jpeg" onerror="this.style.display='none'">
+      <span class="badge top">Top Rated</span>
+    </div>
+    <div class="card-body">
+      <li>
+      <a href="https://drive.google.com/drive/folders/1MWpp9FL_A3l7dhbOTWnAWzqPOGV-Br1Y?usp=drive_link"><div class="card-title">Photo Videography</div></white></a>
+      </li>
+      <div class="card-sub">Top Rated</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="img-wrap">
+      <img src="images/im3.jpeg" onerror="this.style.display='none'">
+      <span class="badge community">Community Pick</span>
+    </div>
+    <div class="card-body">
+         <li>
+      <a href="https://drive.google.com/drive/folders/1tA-u3J_fd0ohDp1aKKlikHLP6bwxr-jj?usp=drive_link"><div class="card-title">Management Business</div></a>
+      </li>
+      <div class="card-sub">Community Pick</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="img-wrap">
+      <img src="images/im4.jpeg" onerror="this.style.display='none'">
+      <span class="badge top">Top Rated</span>
+    </div>
+    <div class="card-body">
+      <li>
+      <a href="https://drive.google.com/drive/folders/1iZm4q3xB2iKcDL7IqirjakM08COYdvoQ?usp=sharing"><div class="card-title">Designer</div></a>
+      </li>
+      <div class="card-sub">Top Rated</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="img-wrap">
+      <img src="images/im5.jpeg" onerror="this.style.display='none'">
+      <span class="badge new">New Talent</span>
+    </div>
+    <div class="card-body">
+      <li>
+      <a href="https://drive.google.com/drive/folders/1WAqFrdiQY-0RxqX1bUP5ONbrgXAT6stX?usp=drive_link"><div class="card-title">Artist Make up</div></a>
+      </li>
+      <div class="card-sub">New Talent</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="img-wrap">
+      <img src="images/im6.jpeg" onerror="this.style.display='none'">
+      <span class="badge community">Community Pick</span>
+    </div>
+    <div class="card-body">
+      <li>
+      <a href="https://drive.google.com/drive/folders/1koyrEWxm6IztHm1sJj2pj4obyJaNsMh3?usp=drive_link"><div class="card-title">Model Artist</div></a>
+      </li>
+      <div class="card-sub">Community Pick</div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ===== ABOUT : USER JOURNEY & SYSTEM MECHANISM ===== -->
+<section id="home">
+  <div class="section-title">
+    <h2>User Journey & <span>System Mechanism</span></h2>
+    <p>Bagaimana sistem SDLS bekerja dari awal hingga transaksi selesai</p>
+  </div>
+
+  <div class="journey">
+
+    <div class="journey-card">
+      <h3>1. Authentication & Activation</h3>
+      <p>
+        User login menggunakan email dan diverifikasi melalui WhatsApp OTP
+        untuk memastikan keamanan dan validitas identitas.
+      </p>
+      <p>
+        Setelah login, user mengunggah skill beserta portofolio sebagai bukti
+        kemampuan.
+      </p>
+    </div>
+
+    <div class="journey-card">
+      <h3>2. Initial Skill-Coin</h3>
+      <p>
+        Setelah sistem memverifikasi skill dan portofolio,
+        user otomatis mendapatkan <strong>1 Skill-Coin</strong>
+        sebagai modal awal eksplorasi platform.
+      </p>
+    </div>
+
+    <div class="journey-card">
+      <h3>3. Point Accumulation (Max 3)</h3>
+      <ul>
+        <li>1 Point: Upload skill pertama</li>
+        <li>2–3 Point: Transaksi dari user lain</li>
+        <li>Saldo maksimum: 3 Skill-Coin</li>
+      </ul>
+      <p>
+        Transaksi ke-4 dan seterusnya dialihkan ke
+        <strong>System Liquidity Reserve</strong>.
+      </p>
+    </div>
+
+    <div class="journey-card">
+      <h3>4. Exploration & Transaction</h3>
+      <p>
+        User mencari skill yang dibutuhkan, memilih penyedia,
+        dan melakukan transaksi menggunakan Skill-Coin.
+      </p>
+      <p>
+        Sistem menahan poin sebagai escrow hingga pekerjaan selesai.
+      </p>
+    </div>
+
+    <div class="journey-card">
+      <h3>5. Rating & Recommendation</h3>
+      <p>
+        Setelah pekerjaan selesai, user memberikan rating dan ulasan.
+        Akun dengan performa tinggi masuk ke daftar
+        <strong>Recommended Developers</strong>.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="summary">
+    <h3>Simplified Flow</h3>
+    <p>
+      Login → WhatsApp OTP → Upload Skill → Claim 1 Skill-Coin →
+      Browse Skill → Escrow Transaction → Completion →
+      Rating → Balance Update
+    </p>
+  </div>
+</section>
+
+</body>
+</html>

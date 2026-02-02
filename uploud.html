@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SDLS Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<a href="Prototype Desain Thinking.html">home</a>
+              <li>
+<style>
+:root{
+  --black:#0b0b0b;
+  --dark-black:#050505;
+  --gold:#d4af37;
+  --gold-soft:#b8962e;
+  --text-light:#f5f5f5;
+  --text-muted:#bfbfbf;
+}
+
+*{box-sizing:border-box;font-family:'Poppins',sans-serif;}
+
+body{
+  background:linear-gradient(135deg,var(--dark-black),var(--black));
+  color:var(--text-light);
+  min-height:100vh;
+}
+
+/* Layout */
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:2.5rem;
+}
+
+.card{
+  background:rgba(15,15,15,0.55);
+  backdrop-filter:blur(14px);
+  border:1px solid rgba(212,175,55,0.25);
+  border-radius:20px;
+  padding:2rem;
+  box-shadow:0 20px 40px rgba(0,0,0,0.6);
+  margin-bottom:2rem;
+}
+
+.hidden{display:none}
+
+/* Header */
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:2rem;
+}
+
+.logo{
+  color:var(--gold);
+  font-weight:700;
+  font-size:1.4rem;
+}
+
+/* Stats */
+.stats{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:1.5rem;
+}
+
+.stat{
+  text-align:center;
+}
+
+.stat h2{
+  color:var(--gold);
+  font-size:2.4rem;
+}
+
+.stat p{
+  color:var(--text-muted);
+}
+
+/* Forms */
+label{
+  font-size:0.8rem;
+  color:var(--text-muted);
+}
+
+input{
+  width:100%;
+  padding:0.75rem;
+  margin-top:0.4rem;
+  border-radius:12px;
+  background:rgba(0,0,0,0.6);
+  border:1px solid rgba(212,175,55,0.25);
+  color:var(--text-light);
+}
+
+button{
+  margin-top:1.2rem;
+  padding:0.8rem 2rem;
+  border-radius:30px;
+  border:none;
+  font-weight:600;
+  cursor:pointer;
+  background:linear-gradient(135deg,var(--gold),var(--gold-soft));
+  color:#000;
+}
+
+button:hover{
+  box-shadow:0 12px 25px rgba(212,175,55,0.35);
+}
+
+/* Skills */
+.skill-list li{
+  color:var(--text-muted);
+  margin-bottom:0.4rem;
+}
+
+  /* Unvisited link */
+  a:link {
+    color: green;
+  }
+
+  /* Visited link */
+  a:visited {
+    color: white;
+  }
+
+  /* Mouse over link */
+  a:hover {
+    color: red;
+  }
+
+  /* Selected link */
+  a:active {
+    color: yellow;
+  }
+</style>
+</head>
+<body>
+
+</body>
+</html>
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="logo">SDLS Dashboard</div>
+    <div>User Status: <span style="color:var(--gold)">Verified</span></div>
+  </div>
+
+  <!-- SKILL UPLOAD (FIRST TIME) -->
+  <div class="card" id="skillCard">
+    <h3 style="color:var(--gold)">Activate Your Skill-Coin</h3>
+    <p style="color:var(--text-muted)">
+      Upload at least one verified skill and portfolio to activate your account.
+    </p>
+
+    <label>Skill Name</label>
+    <input id="skillName" placeholder="e.g. Data Science, AI Research">
+
+    <label>Portfolio Link</label>
+    <input id="portfolio" placeholder="https://your-portfolio.link">
+
+    <button onclick="activateSkill()">Upload & Verify</button>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div class="card hidden" id="dashboard">
+    <h3 style="color:var(--gold)">Account Overview</h3>
+
+    <div class="stats">
+      <div class="stat">
+        <h2 id="points">1</h2>
+        <p>Skill-Coins</p>
+      </div>
+      <div class="stat">
+        <h2 id="tx">0</h2>
+        <p>Transactions</p>
+      </div>
+      <div class="stat">
+        <h2>⭐ 5.0</h2>
+        <p>Rating</p>
+      </div>
+    </div>
+
+    <h4 style="margin-top:2rem;color:var(--gold)">Your Skills</h4>
+    <ul class="skill-list" id="skills"></ul>
+  </div>
+
+</div>
+
+<script>
+const user = {
+  points:0,
+  transactions:0,
+  skills:[]
+};
+
+function activateSkill(){
+  const skill = document.getElementById('skillName').value;
+  const port = document.getElementById('portfolio').value;
+
+  if(!skill || !port){
+    alert("Please complete skill & portfolio");
+    return;
+  }
+
+  user.skills.push(skill);
+  user.points = 1;
+
+  document.getElementById('skillCard').classList.add('hidden');
+  document.getElementById('dashboard').classList.remove('hidden');
+
+  document.getElementById('points').innerText = user.points;
+  document.getElementById('skills').innerHTML =
+    user.skills.map(s => `<li>✔ ${s}</li>`).join('');
+}
+
+</script>
+
+</body>
+</html>
